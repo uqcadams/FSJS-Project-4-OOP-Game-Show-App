@@ -37,24 +37,27 @@ class Phrase {
             document.querySelector("#phrase ul").appendChild(letter);
         }
     }
+    /**
+    * Checks if passed letter is in phrase
+    * @param (string) letter - Letter to check
+    */
     checkLetter(letter){
         // checks to see if the letter selected by the player matches a letter in the phrase.
-        // Loop through the phrase array
-        for (let i = 0; i < phraseArray.length; i++){
-            // If the button click target textcontent is the same as the array value
-            if (e.target.textContent === phraseArray[i]) {
-                // perform some kind of action
-            }
-        }
+        return this.phrase.includes(letter);
     }
-    showMatchedLetter(){
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(checkedLetter){
+
+        const letters = document.getElementsByClassName('letter');
         // Loop through the phrase array
-        for (let i = 0; i < phraseArray.length; i++){
-            // If the button click target textcontent is the same as the array value
-            if (e.target.textContent === phraseArray[i]) {
+        for (let letter of letters) {
+            if (letter.textContent === checkedLetter) {
                 // Remove the hidden class and add the show class
-                e.target.classList.remove("hidden");
-                e.target.classList.add("show");
+                letter.classList.remove('hidden');
+                letter.classList.add('show');
             }
         }
     }
