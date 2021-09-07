@@ -94,16 +94,13 @@ class Game {
    */
   gameOver(gameWon) {
     const gameOver = overlay.querySelector("#game-over-message");
-    const yourPhrase = document.createElement('h1');
-    yourPhrase.textContent = `Your phrase was: ${game.activePhrase.phrase}`;
-    gameOver.insertAdjacentElement("afterend", yourPhrase);
     overlay.style.display = "";
     overlay.classList = "";
     if (gameWon) {
-      gameOver.textContent = "You won";
+      gameOver.textContent = `Winner! Your phrase was: ${game.activePhrase.phrase}`;
       overlay.classList.add("win");
     } else {
-      gameOver.textContent = "You lost";
+      gameOver.textContent = `Better luck next time! Your phrase was: ${game.activePhrase.phrase}`;
       overlay.classList.add("lose");
     }
     game.resetGame();
