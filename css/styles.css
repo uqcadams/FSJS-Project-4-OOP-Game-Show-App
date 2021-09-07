@@ -202,3 +202,59 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+/* EXCEEDS EXPECTATIONS ADDITONS */
+
+/* --1-- Animated Gradient Text */
+/* --1.1-- Addition of gradient variable to root */
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #845ec2,
+    #d65db1,
+    #ff6f91,
+    #ff9671,
+    #ffc75f,
+    #f9f871
+);    
+}
+/* --1.2-- Implementation of gradient animation */
+@keyframes bg-animation {
+  0% {background-position: left;}
+  100% {background-position: right;}
+}
+/* --1.3-- Implementation of gradient with chrome support */
+:is(.show, h2) { 
+  background-image: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  background-clip: text;
+  color: transparent;
+  background-size: 400%;
+  animation: bg-animation 3s infinite alternate;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* --2-- Button hover feedback */
+button:hover {
+  transform: scale(1.2);
+}
+
+/* --3-- Background colour customisation */
+body {
+  background-color: #19191a;
+}
+
+.win {
+  background-color:rgb(18, 61, 29);
+}
+
+:is(.lose, .wrong) {
+  background-color: #942727;
+}
+
+/* --4-- Increased word spacing */
+.space {
+  width: 50px;
+}

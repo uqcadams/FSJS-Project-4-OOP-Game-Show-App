@@ -82,7 +82,7 @@ class Game {
   removeLife() {
     let lives = document.querySelectorAll(".tries img");
     this.missed++;
-    lives[lives.length - this.missed].src = "images/lostHeart.png";
+    lives[lives.length - this.missed].src = "images/lostHeart.svg";
 
     if (this.missed >= 5) {
       this.gameOver(false);
@@ -94,6 +94,9 @@ class Game {
    */
   gameOver(gameWon) {
     const gameOver = overlay.querySelector("#game-over-message");
+    const yourPhrase = document.createElement('h1');
+    yourPhrase.textContent = `Your phrase was: ${game.activePhrase.phrase}`;
+    gameOver.insertAdjacentElement("afterend", yourPhrase);
     overlay.style.display = "";
     overlay.classList = "";
     if (gameWon) {
@@ -118,7 +121,7 @@ class Game {
 
     let lives = document.querySelectorAll(".tries img");
     for (let life of lives) {
-      life.src = "images/liveHeart.png";
+      life.src = "images/liveHeart.svg";
     }
   }
 }
