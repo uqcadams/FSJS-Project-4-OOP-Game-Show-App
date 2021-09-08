@@ -17,7 +17,7 @@ class Game {
    */
   createPhrases() {
     let phraseArray = [];
-    let phrases = ["cavendish banana", "red delicious apple", "iceberg lettuce", "french onion", "roma tomato"];
+    let phrases = ["cavendish banana", "red delicious apple", "iceberg lettuce", "french onion", "roma tomato", "a raw potato"];
     // Iterates over the array of phrases and creates new Phrase objects
     for (let phrase of phrases) {
       phraseArray.push(new Phrase(phrase));
